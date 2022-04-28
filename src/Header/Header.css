@@ -1,0 +1,40 @@
+.header{
+    position: relative;
+    top: -16px;
+    
+}
+.banner{
+    width: 100%;
+    height: 500px;
+    position: absolute;
+    
+    
+    
+}
+.header-all-text-h1{
+    
+    color: white;
+    font-size: 48px;
+
+    text-align: center;
+    top: 150px;
+    left: 100px;
+    
+    margin: auto;
+    position: absolute;
+    
+}
+.header-all-text-para{
+    
+    color: white;
+    font-size: 22px;
+
+    text-align: center;
+    top: 225px;
+    left: 100px;
+    
+    margin: auto;
+    position: absolute;
+    
+}
+
