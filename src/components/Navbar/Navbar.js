@@ -47,7 +47,7 @@ const Navbar = () => {
                 >
                   More Options
                 </Link>
-                <ul class="dropdown-menu">
+                <ul className="dropdown-menu">
                   <li>
                     <Link className="dropdown-item" to="/manageItems">
                       Manage Items
@@ -65,7 +65,7 @@ const Navbar = () => {
                   </li>
 
                   <li>
-                    <hr class="dropdown-divider" />
+                    <hr className="dropdown-divider" />
                   </li>
                   <li>
                     <Link className="dropdown-item" to="/">
