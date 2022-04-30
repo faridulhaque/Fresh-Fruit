@@ -1,0 +1,31 @@
+.single-item{
+    width: 250px;
+    height: 550px;
+    margin-left: 10px;
+    margin-top: 50px;
+    position: relative;
+}
+.single-item-bottom{
+    position: absolute;
+    bottom: 0;
+}
+.single-item-bottom p{
+    margin-top: -10px;
+}
+.single-item-bottom a{
+    text-decoration: none;
+    
+    
+    color: white;
+    background-color: limegreen;
+
+    padding: 7px 18px;
+    font-size: 15px;
+    border-radius: 2px;
+}
+.items{
+    width: 90%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    
+}

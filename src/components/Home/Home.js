@@ -1,12 +1,14 @@
 import React from 'react';
 import Header from '../Header/Header';
-import Navbar from '../Navbar/Navbar';
+import Inventories from '../Inventories/Inventories';
+
 
 const Home = () => {
     return (
         <div>
             
             <Header></Header>
+            <Inventories></Inventories>
         </div>
     );
 };

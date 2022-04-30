@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import './Navbar.css';
+import "./Navbar.css";
 
 const Navbar = () => {
   return (
@@ -35,17 +35,45 @@ const Navbar = () => {
                   Blog
                 </Link>
               </li>
-              <li className="nav-item">
-                <Link className="nav-link" to="/inventories">
-                  Inventories
+
+              {/* dropdown menu if user is logged In */}
+              <li class="nav-item dropdown">
+                <Link
+                  className="nav-link dropdown-toggle"
+                  data-bs-toggle="dropdown"
+                  to="/"
+                  role="button"
+                  aria-expanded="false"
+                >
+                  More Options
                 </Link>
+                <ul class="dropdown-menu">
+                  <li>
+                    <Link className="dropdown-item" to="/manageItems">
+                      Manage Items
+                    </Link>
+                  </li>
+                  <li>
+                    <Link className="dropdown-item" to="/">
+                      My Items
+                    </Link>
+                  </li>
+                  <li>
+                    <Link className="dropdown-item" to="/">
+                      Add New Item
+                    </Link>
+                  </li>
+
+                  <li>
+                    <hr class="dropdown-divider" />
+                  </li>
+                  <li>
+                    <Link className="dropdown-item" to="/">
+                      Sign Out
+                    </Link>
+                  </li>
+                </ul>
               </li>
-              <li className="nav-item">
-                <Link className="nav-link" to="/">
-                  Suppliers
-                </Link>
-              </li>
-              
             </ul>
           </div>
         </div>

@@ -1,12 +1,13 @@
 
 import { Route, Routes } from 'react-router-dom';
 import './App.css';
-import Blog from './Blog/Blog';
+import Blog from './components/Blog/Blog';
 
-import Home from './Home/Home';
-import Inventories from './Inventories/Inventories';
-import Navbar from './Navbar/Navbar';
-import NotFound from './NotFound/NotFound';
+import Home from './components/Home/Home';
+
+import Navbar from './components/Navbar/Navbar';
+import NotFound from './components/NotFound/NotFound';
+import ManageItems from './ManageItems/ManageItems';
 
 function App() {
   return (
@@ -15,7 +16,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home></Home>} ></Route>
         <Route path="/blog" element={<Blog></Blog>}></Route>
-        <Route path="/inventories" element={<Inventories></Inventories>}></Route>
+        <Route path="/manageItems" element={<ManageItems></ManageItems>}></Route>
         <Route path="/*" element={<NotFound></NotFound>}></Route>
       </Routes>
     </div>
