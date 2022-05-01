@@ -1,0 +1,39 @@
+.container-itemDetails{
+    
+    height: 80vh;
+    display: flex;
+}
+.img-itemDetails{
+    width:50%;
+}
+.info-itemDetails{
+    background-color: whitesmoke;
+    position: relative;
+    
+    width: 50%;
+}
+.btn-itemDetails{
+    background-color: limegreen;
+    width: 90%;
+    margin-left: 5%;
+    margin-right: 5%;
+    height: 50px;
+    border: none;
+    padding: 5px 10px;
+    position: absolute;
+    bottom: 15px;
+    color: white;
+    border-radius: 5px;
+}
+.btn-itemDetails:hover{
+    background-color: white;
+    border: 1px solid limegreen;
+    color: limegreen;
+    transition: background-color 0.5s;
+}
+.info-text-itemDetails{
+    width: 90%;
+    margin-top: 100px;
+    margin-left: 5%;
+    margin-right: 5%;
+}

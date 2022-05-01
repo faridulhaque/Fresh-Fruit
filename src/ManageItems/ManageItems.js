@@ -25,7 +25,7 @@ const ManageItems = () => {
                 <p className="card-text">Quantity: <small>{item.quantity}</small></p>
                 <p className="card-text">Supplier: <small>{item.supplier}</small></p>
                 
-                <button className="btn-dlv-mangeItems">Delivered</button>
+                
                 <button className="btn-dlt-mangeItems">Delete Item </button>
               </div>
             </div>
