@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "./Navbar.css";
 
+
 const Navbar = () => {
   return (
     <div>
@@ -29,6 +30,7 @@ const Navbar = () => {
                 <Link className="nav-link active" aria-current="page" to="/">
                   Home
                 </Link>
+                
               </li>
               <li className="nav-item ms-2">
                 <Link className="nav-link" to="/blog">
@@ -37,7 +39,7 @@ const Navbar = () => {
               </li>
 
               {/* dropdown menu if user is logged In */}
-              <li class="nav-item dropdown">
+              <li className="nav-item dropdown">
                 <Link
                   className="nav-link dropdown-toggle"
                   data-bs-toggle="dropdown"
@@ -69,8 +71,9 @@ const Navbar = () => {
                   </li>
                   <li>
                     <Link className="dropdown-item" to="/">
-                      Sign Out
+                      Sign Out 
                     </Link>
+                    
                   </li>
                 </ul>
               </li>

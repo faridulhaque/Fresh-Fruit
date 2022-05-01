@@ -4,6 +4,8 @@ import './App.css';
 import Blog from './components/Blog/Blog';
 
 import Home from './components/Home/Home';
+import ItemDetails from './components/ItemDetails/ItemDetails';
+
 
 import Navbar from './components/Navbar/Navbar';
 import NotFound from './components/NotFound/NotFound';
@@ -17,6 +19,8 @@ function App() {
         <Route path="/" element={<Home></Home>} ></Route>
         <Route path="/blog" element={<Blog></Blog>}></Route>
         <Route path="/manageItems" element={<ManageItems></ManageItems>}></Route>
+        <Route path="/home/:itemDetail" element={<ItemDetails></ItemDetails>}></Route>
+        
         <Route path="/*" element={<NotFound></NotFound>}></Route>
       </Routes>
     </div>

@@ -10,19 +10,27 @@ const ManageItems = () => {
   return (
     <div>
       <h1 className="text-center mt-3 mb-5">Manage Items</h1>
-      <div className="items container">
+      <div className="container">
         {items.map((item) => (
-          <div className="single-item" key={item._id}>
-            <img style={{ height: 250, width: 250 }} src={item.img} alt="" />
-            <h2>{item.name}</h2>
-            <p>Supplier: {item.supplier}</p>
-            <p>{item.description}</p>
-            <div className="single-item-bottom">
-              <p>Quantity: {item.quantity} KG</p>
-              <p>Price: {item.price} (Per KG)</p>
-              <Link to="/">Update</Link>
+          <div className="card mb-5 m-auto" style={{maxWidth: 600}}>
+          <div className="row g-0">
+            <div className="col-md-4">
+              <img src={item.img} className="img-fluid rounded-start" alt="..." style={{height: '100%'}}/>
+            </div>
+            <div className="col-md-8">
+              <div className="card-body">
+                <h5 className="card-title">{item.name}</h5>
+                <p className="card-text">{item.description}</p>
+                <p className="card-text">Price: <small>{item.price}</small></p>
+                <p className="card-text">Quantity: <small>{item.quantity}</small></p>
+                <p className="card-text">Supplier: <small>{item.supplier}</small></p>
+                
+                <button className="btn-dlv-mangeItems">Delivered</button>
+                <button className="btn-dlt-mangeItems">Delete Item </button>
+              </div>
             </div>
           </div>
+        </div>
         ))}
       </div>
     </div>
