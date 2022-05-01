@@ -5,8 +5,8 @@ import './itemDetails.css';
 const ItemDetails = () => {
     const {itemDetail} = useParams();
     const [itemInfo, setItemInfo] = useState({});
-    const [quantity, setQuantity] = useState(parseInt(itemInfo.quantity));
-    console.log(quantity);
+    
+    
     
     
     
@@ -16,15 +16,58 @@ const ItemDetails = () => {
         .then(res => res.json())
         .then(data => {
             setItemInfo(data);
-            setQuantity(parseInt(data.quantity));
         })
-    }, [itemDetail]);
+    }, [itemInfo]);
     
 
-    const manageQuantity = () =>{
-        setQuantity(quantity -1);
+    const reduceQuantity = () =>{
+        const quantity = parseInt(itemInfo.quantity) - 1;
         
         
+        const updatedInfo = { quantity};
+        const url = `http://localhost:5000/fruit/${itemDetail}`;
+        fetch(url, {
+            method: 'PUT',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(updatedInfo)
+        })
+        .then(res => res.json())
+        .then(data =>{
+            console.log(data);
+            
+        })
+        
+        
+    }
+    const restockItem = (e) => {
+        e.preventDefault();
+        if(parseInt(e.target.number.value) >= 1){
+            const quantity = parseInt(itemInfo.quantity) + parseInt(e.target.number.value);
+        
+        const updatedInfo = { quantity};
+        const url = `http://localhost:5000/fruit/${itemDetail}`;
+        fetch(url, {
+            method: 'PUT',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(updatedInfo)
+        })
+        .then(res => res.json())
+        .then(data =>{
+            
+            console.log(data)
+        })
+        }
+        else{
+            alert("Input value must be above 0");
+        }
+
+       
+        
+    
     }
     return (
         <div>
@@ -40,9 +83,17 @@ const ItemDetails = () => {
                         <p><b>Supplier: </b>{itemInfo.supplier}</p>
                         <p><b>Description: </b> {itemInfo.description}</p>
                         <p><b>Price: </b> $ {itemInfo.price} (Per KG)</p>
-                        <p><b>Quantity: </b> {quantity} (KG)</p>
+                        <p><b>Quantity: </b> {itemInfo.quantity} (KG)</p>
                     </div>
-                    <button onClick={manageQuantity} className="btn-itemDetails">Delivered</button>
+                    
+                    <div className="form-wrapper">
+                        <form onSubmit={restockItem}>
+                            <input className="input-number-itemDetails" type="number" name="number" id="number" placeholder="Restock Your Item"/>
+                            <button className="button-number-itemDetails" type="submit">Restock</button>
+                            
+                        </form>
+                    </div>
+                    <button onClick={reduceQuantity} className="btn-itemDetails">Delivered</button>
                 </div>
             
             
