@@ -6,6 +6,6 @@ export const useItems =() =>{
         fetch('http://localhost:5000/fruits')
         .then(res => res.json())
         .then(data => setItems(data))
-    },[])
+    },[items])
     return [items, setItems];
 }
