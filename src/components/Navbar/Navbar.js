@@ -1,18 +1,20 @@
-import { signOut } from "firebase/auth";
+
 import React from "react";
-import { useAuthState } from "react-firebase-hooks/auth";
+
 import { Link } from "react-router-dom";
-import { auth } from "../../Firebase/firebase.init";
+
+import useFirebaseHooks from "../hooks/useFirebaseHooks";
 import "./Navbar.css";
 
 
 const Navbar = () => {
-  const [user, loading, error] = useAuthState(auth);
+  const {user, signMeOut} = useFirebaseHooks();
+  
   console.log(user);
 
   // function for signing out
   const logout = () => {
-    signOut(auth);
+    signMeOut();
   };
   // function for signing out ended
   return (
@@ -49,7 +51,7 @@ const Navbar = () => {
                 </Link>
               </li>
               <li className="nav-item ms-2">
-                <Link className="nav-link" to="/blog">
+                <Link className="nav-link" to="/supplier">
                   Supplier
                 </Link>
               </li>

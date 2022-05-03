@@ -3,19 +3,23 @@
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+    height: 100vh;
     
 }
 .signIn-h2{
     text-align: center;
-    color: orangered;
-    position: relative;
-    top: 50px;
+    color: orange;
 }
 .signIn-form-container{
     background-color: rgb(0, 0, 0, 0.7);
     width: 280px;
     height: 500px;
-    margin-top: 100px !important;
+    position: absolute;
+    top: 125px;
+    left: 0;
+    right: 0;
+    margin: auto;
+    
     
     border-radius: 5px;
     box-sizing: border-box;
@@ -43,13 +47,25 @@
     color: orange;
 
 }
-.signIn-btn{
+.signIn-btn, .signIn-btn-google{
     background-color: orange;
     border: none;
     color: white;
     width: 250px;
     height: 35px;
     border-radius: 5px;
+}
+.signIn-btn-google{
+    background-color: red;
+    margin-top: 5px;
+    margin-left: 15px;
+}
+.signIn-btn-google:hover{
+    background-color: rgb(0, 0, 0, 0.5);
+    border: solid 1px red;
+    color: white;
+    transition: background-color 0.5s ease;
+    
 }
 .signIn-btn:hover{
     background-color: rgb(0, 0, 0, 0.5);

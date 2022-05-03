@@ -14,6 +14,7 @@ import NotFound from './components/NotFound/NotFound';
 import RequireAuth from './components/RequireAuth/RequireAuth';
 import SignIn from './components/SignIN/SignIn';
 import SignUp from './components/SignUp/SignUp';
+import Supplier from './components/Supplier/Supplier';
 
 
 function App() {
@@ -23,6 +24,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home></Home>} ></Route>
         <Route path="/blog" element={<Blog></Blog>}></Route>
+        <Route path="/supplier" element={<Supplier></Supplier>}></Route>
         <Route path="/manageItems" element={<ManageItems></ManageItems>}></Route>
         <Route path="/addNewItem" element={<AddNewItem></AddNewItem>}></Route>
         <Route path="/signUp" element={<SignUp></SignUp>}></Route>
