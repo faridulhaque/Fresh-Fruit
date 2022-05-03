@@ -1,56 +1,81 @@
+.items{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    margin-left: 50px;
+}
 .single-item-inventories{
-    width: 220px;
-    height: 575px;
+    width: 250px;
+    height: 500px;
     padding-bottom: 25px;
     margin-left: 10px;
     margin-top: 50px;
     margin-bottom: 50px;
     position: relative;
+    
     box-sizing: border-box;
-    box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 .single-item-inventories:hover{
     
     transform: translateY(-50px);
-    transition: transform 0.5s;
+    transition: transform 0.5s; 
 }
 
-.single-item-top{
-    margin-left: 10px;
-    margin-right: 10px;
+.price-quantity-name{
+    
+    display: flex;
+    width: 99%;
+    height: 100px;
+    margin-left: 0.5%;
+    /* background-color: rgb(11, 158, 11); */
 }
-.single-item .text{
-    width: 200px;
-    margin-left: 5px;
+.name-div{
+    width: 33%;
+    height: 80px;
+    /* background-color */
+}
+.price-div{
+    width: 33%;
+    height: 80px;
+    /* background-color:  */
+    
+}
+.quantity-div{
+    height: 80px;
+    width: 33%;
+    /* background-color: green; */
+    
+}
+.item-name-p{
     text-align: center;
+    margin-top: 10px;
+    font-weight: bold;
+    font-size: 18x;
+    
+}
+.item-value-p{
+    text-align: center;
+    margin-top: -12px;
+    font-size: 14x;
+    
 }
 .single-item-bottom{
-    position: absolute;
-    width: 200px;
-    margin-left: 10px;
-    margin-right: 10px;
-    bottom: 25px;
-}
-
-.update-btn-inventories{
     width: 100%;
-    color: white;
-    background-color: limegreen;
-    padding: 10px 30px;
-    font-size: 15px;
-    border-radius: 2px;
+    position: absolute;
+    bottom: 10px;
+}
+.update-btn-inventories{
+    background-color: rgb(11, 158, 11);
     border: none;
+    width: 96%;
+    margin-left: 2%;
+    color: white;
+    height: 40px;
+    border-radius: 5px;
 }
 .update-btn-inventories:hover{
+    color: rgb(11, 158, 11);
+    border: 1px solid rgb(11, 158, 11);
     background-color: white;
-    border: solid 1px limegreen;
-    color: limegreen;
-}
 
-.items{
-    width: 90%;
-    margin-left: 8%;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    
 }

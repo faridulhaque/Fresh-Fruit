@@ -1,18 +1,21 @@
 
-.banner{
-    width: 100%;
-    height: 500px;
-    top: -11px;
-    position: relative;
+.header{
+    background: url('../../images/bannerhome.png');
+    background-position: cover;
+    
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
 }
 .header-all-text-h1{
     
-    color: white;
+    color: color;
     font-size: 48px;
 
     text-align: center;
-    top: 150px;
-    left: 100px;
+    top: 40%;
+    right: 0;
+    left: 0;
     
     margin: auto;
     position: absolute;
@@ -20,12 +23,13 @@
 }
 .header-all-text-para{
     
-    color: white;
+    color: black;
     font-size: 22px;
 
     text-align: center;
-    top: 225px;
-    left: 100px;
+    top: 50%;
+    left: 0;
+    right: 0;
     
     margin: auto;
     position: absolute;

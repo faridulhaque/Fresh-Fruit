@@ -1,12 +1,23 @@
+import { signOut } from "firebase/auth";
 import React from "react";
+import { useAuthState } from "react-firebase-hooks/auth";
 import { Link } from "react-router-dom";
+import { auth } from "../../Firebase/firebase.init";
 import "./Navbar.css";
 
 
 const Navbar = () => {
+  const [user, loading, error] = useAuthState(auth);
+  console.log(user);
+
+  // function for signing out
+  const logout = () => {
+    signOut(auth);
+  };
+  // function for signing out ended
   return (
     <div>
-      {/* that is navbar developed with the bootstrap framework */}
+      {/* that is navbar developed with the bootstrap framework. color and style updated with css */}
       <nav className="navbar navbar-expand-lg bg-light p-3">
         <div className="container-fluid">
           <button
@@ -18,14 +29,14 @@ const Navbar = () => {
             aria-expanded="false"
             aria-label="Toggle navigation"
           >
-            {/* <span className="navbar-toggler-icon"></span> */}
+            
             <i className="fa-solid fa-bars"></i>
           </button>
           <Link className="navbar-brand me-auto ms-5" to="/">
             Fresh Fruit
           </Link>
           <div className="collapse navbar-collapse" id="navbarTogglerDemo03">
-            <ul className="navbar-nav ms-auto me-5 mb-2 mb-lg-0">
+            <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
               <li className="nav-item ms-2">
                 <Link className="nav-link active" aria-current="page" to="/">
                   Home
@@ -37,9 +48,16 @@ const Navbar = () => {
                   Blog
                 </Link>
               </li>
+              <li className="nav-item ms-2">
+                <Link className="nav-link" to="/blog">
+                  Supplier
+                </Link>
+              </li>
 
               {/* dropdown menu if user is logged In */}
-              <li className="nav-item dropdown">
+              
+              {
+                user?.uid && <li className="nav-item dropdown">
                 <Link
                   className="nav-link dropdown-toggle"
                   data-bs-toggle="dropdown"
@@ -47,7 +65,7 @@ const Navbar = () => {
                   role="button"
                   aria-expanded="false"
                 >
-                  More Options
+                  {user?.displayName}
                 </Link>
                 <ul className="dropdown-menu">
                   <li>
@@ -65,18 +83,22 @@ const Navbar = () => {
                       Add New Item
                     </Link>
                   </li>
+                  
 
                   <li>
                     <hr className="dropdown-divider" />
                   </li>
                   <li>
-                    <Link className="dropdown-item" to="/">
+                    <button onClick={logout} className="dropdown-item">
                       Sign Out 
-                    </Link>
+                    </button>
                     
                   </li>
                 </ul>
+
               </li>
+              }
+              
             </ul>
           </div>
         </div>

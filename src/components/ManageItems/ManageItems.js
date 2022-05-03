@@ -1,6 +1,6 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import { useItems } from "../components/hooks/useItems";
+import { useItems } from "../hooks/useItems";
+
 import "./mangeItems.css";
 
 const ManageItems = () => {
