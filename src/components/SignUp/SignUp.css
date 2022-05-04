@@ -1,0 +1,69 @@
+.signUp-h2-top{
+    text-align: center;
+    margin-top: 25px;
+}
+.sign-up{
+    height: 100vh;
+    background-image: url(../../images/bannersignup.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+.form-wrapper-signUp{
+    position: absolute;
+    top: 150px;
+    left: 0;
+    right: 0;
+    margin: auto;
+    background-color: white;
+    width: 280px;
+    height: 500px;
+    box-sizing: border-box;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.input-group-signup, .signup-btn-wrapper{
+    margin-top: 40px;
+    margin-left: 15px;
+    
+}
+.input-box-signup{
+    width: 250px;
+    height: 30px;
+    font-size: 16px;
+    background: none;
+    border: none;
+    border-bottom: 2px solid green;
+    outline: none;
+    color: green;
+}
+.signup-btn, .signup-btn-google{
+    background-color: green;
+    border: none;
+    color: white;
+    width: 250px;
+    height: 35px;
+    border-radius: 5px;
+}
+.signup-btn-google{
+    background-color: red;
+    margin-top: 5px;
+    margin-left: 15px;
+}
+.breakingLineSignUp{
+    width: 250px;
+    display: flex;
+     align-items: center;
+     justify-content:center;
+     margin-left: 15px;
+     margin-top: 20px;
+     margin-bottom: 10px;
+}
+.breaking-line-signup{
+    width: 250px;
+    height: 2px;
+    background-color: black;
+    margin-top: 3px;
+}
+.breakingLine-small-signup a{
+    color: green;
+}

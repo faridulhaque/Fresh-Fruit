@@ -79,7 +79,8 @@
      align-items: center;
      justify-content:center;
      margin-left: 15px;
-     margin-top: 40px;
+     margin-top: 20px;
+     margin-bottom: 10px;
 }
 .breakingLine-small{
     color: orange;
@@ -90,3 +91,9 @@
     background-color: orange;
     margin-top: 3px;
 }
+.small-navigator-signIn-text{
+    color: orange;
+}
+.small-navigator-signIn-link{
+    color: green;
+} 

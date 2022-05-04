@@ -1,20 +1,42 @@
 
 import React from "react";
+import {useState, useEffect} from "react"
 
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import {signOut, onAuthStateChanged } from "firebase/auth";
 
-import useFirebaseHooks from "../hooks/useFirebaseHooks";
+
 import "./Navbar.css";
+import { auth } from "../../Firebase/firebase.init";
 
 
 const Navbar = () => {
-  const {user, signMeOut} = useFirebaseHooks();
   
-  console.log(user);
+  const navigate = useNavigate();
+  const [currentUser, setCurrentUser] = useState({});
+  useEffect(()=>{
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        
+        setCurrentUser(user);
+        
+      } else {
+        setCurrentUser({});
+      }
+    });
+   }, []);
+  
+  
 
   // function for signing out
   const logout = () => {
-    signMeOut();
+    signOut(auth)
+    .then(() => {
+        navigate('/')
+    })
+    .catch((error) => {
+      
+    });
   };
   // function for signing out ended
   return (
@@ -38,28 +60,30 @@ const Navbar = () => {
             Fresh Fruit
           </Link>
           <div className="collapse navbar-collapse" id="navbarTogglerDemo03">
-            <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
+            <ul className="navbar-nav ms-auto me-5 mb-2 mb-lg-0">
               <li className="nav-item ms-2">
                 <Link className="nav-link active" aria-current="page" to="/">
                   Home
                 </Link>
                 
               </li>
+              
               <li className="nav-item ms-2">
                 <Link className="nav-link" to="/blog">
                   Blog
                 </Link>
               </li>
+              
               <li className="nav-item ms-2">
                 <Link className="nav-link" to="/supplier">
-                  Supplier
+                  Suppliers
                 </Link>
               </li>
 
               {/* dropdown menu if user is logged In */}
               
               {
-                user?.uid && <li className="nav-item dropdown">
+                currentUser?.uid && <li className="nav-item dropdown">
                 <Link
                   className="nav-link dropdown-toggle"
                   data-bs-toggle="dropdown"
@@ -67,7 +91,7 @@ const Navbar = () => {
                   role="button"
                   aria-expanded="false"
                 >
-                  {user?.displayName}
+                  More
                 </Link>
                 <ul className="dropdown-menu">
                   <li>
