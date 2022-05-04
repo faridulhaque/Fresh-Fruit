@@ -3,7 +3,7 @@
     margin-top: 25px;
 }
 .sign-up{
-    height: 100vh;
+    height: 120vh;
     background-image: url(../../images/bannersignup.png);
     background-repeat: no-repeat;
     background-position: center;
@@ -16,8 +16,9 @@
     right: 0;
     margin: auto;
     background-color: white;
+    padding-bottom: 20px;
     width: 280px;
-    height: 500px;
+    height: auto;
     box-sizing: border-box;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }

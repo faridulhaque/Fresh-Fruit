@@ -1,8 +1,10 @@
 
+import { Toaster } from 'react-hot-toast';
 import { Route, Routes } from 'react-router-dom';
 import './App.css';
 import AddNewItem from './components/AddNewItem/AddNewItem';
 import Blog from './components/Blog/Blog';
+import Footer from './components/Footer/Footer';
 
 import Home from './components/Home/Home';
 import ItemDetails from './components/ItemDetails/ItemDetails';
@@ -21,6 +23,7 @@ function App() {
   return (
     <div>
       <Navbar></Navbar>
+      <Toaster></Toaster>
       <Routes>
         <Route path="/" element={<Home></Home>} ></Route>
         <Route path="/blog" element={<Blog></Blog>}></Route>
@@ -33,6 +36,7 @@ function App() {
         
         <Route path="/*" element={<NotFound></NotFound>}></Route>
       </Routes>
+      <Footer></Footer>
     </div>
   );
 }

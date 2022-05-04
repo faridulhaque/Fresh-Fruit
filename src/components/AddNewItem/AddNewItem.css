@@ -2,70 +2,95 @@ body{
     margin: 0;
     padding: 0;
 }
+.ani-heading{
+    color: white !important;
+}
+.ani-main{
+    background-image: url(../../images/bgImageAni.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    height: 100vh;
+    margin-top: -16px;
+    
+}
 .form-container-addNewItem{
     background-color: white;
-    margin-bottom: 100px;
-    height: 700px;
     box-sizing: border-box;
-    box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.2);
-}
-.form-container-top, .form-container-bottom{
-    
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-}
-.input-wrapper{
-    background-color: orangered;
-    width: 250px;
-    height: 100px;
-    margin-top: 100px;
-    border-radius: 5px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    margin-top: -15px;
+    width: 60%;
+    height: 500px;
+    margin-left: 20%;
+    padding: 0 20px;
     
 }
-.input-box{
-    width: 200px;
-    height: 30px;
-    margin-top: 35px;
-    margin-left: 25px;
-    background-color: white;
-    font-size: 16px;
-    border: none;
-    outline: none;
-    border-radius: 2px;
-}
-.input-wrapper-last-child{
-    background-color: orangered;
-    width: 500px;
-    height: 100px;
-    margin-top: 100px;
-    border-radius: 5px;
-}
-.input-box-last-child{
-    width: 500px;
-    height: 60px;
-    margin-top: 20px;
+.form-container-top{
     
-    background-color: white;
-    font-size: 16px;
-    border: none;
-    outline: none;
-    border-radius: 2px;
+    margin-top: 50px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    justify-items: space-around;
+    grid-column-gap: 30px;
 }
-.form-btn-submit{
-    background-color: orangered;
+.input-wrapper-ani{
+    margin-top: 50px;
+    
+    
+}
+.input-box-ani{
     width: 100%;
-    height: 40px;
+    height: 30px;
     margin-top: 5px;
     border: none;
-    color: white;
-    border-radius: 5px;
+    outline: none;
+    background-color:white;
+    border-bottom: 2px solid brown;
+    font-size: 12px;
 
 }
-.form-btn-submit:hover{
+.label-ani{
+    font-size: 12px;
+    color: brown;
+}
+
+
+.form-btn-submit-ani{
+    width: 100%;
+    background-color: brown;
+    margin-top: 25px;
+    color: white;
+    border:  none;
+
+}
+.wrapper-bottom-ani{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-column-gap: 30px;
+    justify-items: space-around;
+    align-items: end;
+}
+.textarea-ani{
+    width: 100%;
+    border:  none;
+    border-bottom: 2px solid brown;
+    resize: none;
+    outline: none;
     background-color: white;
-    border: 1px solid orangered;
-    color: orangered;
-    
+    height: 60px;
+}
+.btn-submit-ani{
+    color: white;
+    background-color: brown;
+    border: none;
+    width: 100%;
+    height: 40px;
+    border-radius: 5px;
+}
+.btn-submit-ani:hover{
+    background-color: white; 
+    border: 1px solid brown;
+    transition: background-color 0.5s;
+    color: brown;
 
 }

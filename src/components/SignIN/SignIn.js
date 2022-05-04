@@ -1,5 +1,6 @@
-import { GoogleAuthProvider, signInWithEmailAndPassword, signInWithPopup } from "firebase/auth";
+import { GoogleAuthProvider, sendPasswordResetEmail, signInWithEmailAndPassword, signInWithPopup } from "firebase/auth";
 import React, { useState } from "react";
+import toast from "react-hot-toast";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 
 
@@ -11,7 +12,7 @@ const provider = new GoogleAuthProvider();
 
 const SignIn = () => {
   
-
+  const [authError, setAuthError] = useState('');
   const [email, setEmail] = useState({value: "", error: ""});
   const [password, setPassword] = useState({value: "", error: ""});
 
@@ -60,7 +61,8 @@ const SignIn = () => {
         
       })
       .catch((error) => {
-        
+        const errorMessage = error.message;
+        setAuthError('Email or password is incorrect');
       });
   };
   const signMeInWithGoogle = () => {
@@ -76,6 +78,19 @@ const SignIn = () => {
         console.log(errorMessage);
       });
   };
+  const resetPassword = () =>{
+    if(email.value){
+      sendPasswordResetEmail(auth, email.value)
+      .then(() => {
+        toast.success('check your email to reset your password',{id: 'resetPassword'});
+        
+      })
+      .catch((error) => {
+        
+        
+      });
+    }
+  }
 
   return (
     <div className="signIn">
@@ -107,8 +122,12 @@ const SignIn = () => {
              {password?.error && (
               <small style={{ color: "red" }}>{password.error}</small>
             )}
+            {
+              authError && <small className="text-danger">{authError +"." + " "}<span className="remember-password" onClick={resetPassword}>Forgot Password?</span></small>
+            }
           </div>
           <div className="signIn-btn-wrapper">
+           
             <button type="submit" className="signIn-btn">
               Sign In
             </button>

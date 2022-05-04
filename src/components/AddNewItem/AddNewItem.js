@@ -1,7 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
+import toast from "react-hot-toast";
+import { useTheUser } from "../hooks/useTheUser";
 import "./AddNewItem.css";
 
 const AddNewItem = () => {
+  const currentUser = useTheUser();
+  console.log(currentUser);
   const addNewItem = (e) => {
     e.preventDefault();
     const name = e.target.name.value;
@@ -31,66 +35,99 @@ const AddNewItem = () => {
       body: JSON.stringify(allData),
     })
       .then((res) => res.json())
-      .then((data) => {});
+      .then((data) => {
+        toast.success('Item Successfully Added',{id: 'itemAdded'});
+      });
   };
+  const [error, setError] = useState("");
+
   return (
-    <div>
-      <h2 className="text-center mt-3">Fill out the form to add a new item</h2>
+    <div className="ani-main">
+      <h2 className="text-center mt-3 ani-heading">
+        Fill out the form to add a new item
+      </h2>
       <div className="container form-container-addNewItem">
         <form onSubmit={addNewItem}>
           <div className="form-container-top">
-            <div className="input-wrapper">
-              <input className="input-box"
+            <div className="input-wrapper-ani">
+              <label className="label-ani">Product's Name</label>
+              <br />
+              <input
+                className="input-box-ani"
                 type="text"
                 name="name"
                 placeholder="Add item's name"
               ></input>
             </div>
-            <div className="input-wrapper">
-              <input className="input-box"
+            <div className="input-wrapper-ani">
+              <label className="label-ani">Supplier</label>
+              <br />
+              <input
+                className="input-box-ani"
                 type="text"
                 name="supplierName"
                 placeholder="Add the supplier's name"
               ></input>
             </div>
-            <div className="input-wrapper">
-              <input className="input-box" type="text" name="price" placeholder="Add a price"></input>
+            <div className="input-wrapper-ani">
+              <label className="label-ani">Price</label>
+              <br />
+              <input
+                className="input-box-ani"
+                type="text"
+                name="price"
+                placeholder="Add a price"
+              ></input>
             </div>
-          </div>
-          <div className="form-container-bottom">
-            <div className="input-wrapper">
-              <input className="input-box"
+
+            <div className="input-wrapper-ani">
+              <label className="label-ani">Quantity</label>
+              <br />
+              <input
+                className="input-box-ani"
                 type="text"
                 name="quantity"
                 placeholder="Add a quantity"
               ></input>
             </div>
-            <div className="input-wrapper">
-              <input className="input-box"
-                type="email"
-                name="email"
-                placeholder="Add your email "
-              ></input>
-            </div>
-
-            <div className="input-wrapper">
-              <input className="input-box"
+            <div className="input-wrapper-ani">
+              <label className="label-ani">Image URL</label>
+              <br />
+              <input
+                className="input-box-ani"
                 type="text"
                 name="image"
                 placeholder="Add an image URL"
               ></input>
             </div>
+            <div className="input-wrapper-ani">
+              <label className="label-ani">Email</label>
+              <br />
+              <input
+                className="input-box-ani"
+                type="email"
+                name="email"
+                placeholder="Add your email "
+                value={currentUser?.email}
+                disabled
+              ></input>
+            </div>
+           
           </div>
-
-          <div className='input-wrapper-last-child container'>
-            <input className="input-box-last-child"
-              type="text"
-              name="description"
-              placeholder="Add an additional info"
-            ></input>
+          <div className="wrapper-bottom-ani mt-3">
+          <div>
+              <label className="label-ani">Description</label>
+              <br/>
+              <textarea
+                className="textarea-ani"
+                name="description"
+                placeholder="Add an additional info"
+              ></textarea>
+            </div>
+            <div className="div-for-btn-ani">
+              <button className="btn-submit-ani"type="Submit">Add Item</button>
+            </div>
           </div>
-            <br/>
-          <button className="form-btn-submit" type="submit">submit</button>
         </form>
       </div>
     </div>
