@@ -121,7 +121,7 @@ const SignUp = () => {
             <div className="breaking-line-signup"></div>
           </div>
         </form>
-        <button className="signup-btn-google" onClick={signMeUpWithGoogle}> sign up with google</button>
+        <button className="signup-btn-google" onClick={signMeUpWithGoogle}> Sign Up With Google</button>
       </div>
     </div>
   );

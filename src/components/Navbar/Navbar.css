@@ -23,3 +23,6 @@
     background-color: black !important;
     color: white !important;
 }
+.navbar-nav{
+    margin-right: 100px !important;
+}

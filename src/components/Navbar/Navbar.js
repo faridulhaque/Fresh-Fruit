@@ -60,7 +60,7 @@ const Navbar = () => {
             Fresh Fruit
           </Link>
           <div className="collapse navbar-collapse" id="navbarTogglerDemo03">
-            <ul className="navbar-nav ms-auto me-5 mb-2 mb-lg-0">
+            <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
               <li className="nav-item ms-2">
                 <Link className="nav-link active" aria-current="page" to="/">
                   Home

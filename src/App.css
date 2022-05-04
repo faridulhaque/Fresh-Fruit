@@ -1,11 +1,11 @@
-.App {
-  text-align: center;
+
+.footer-app{
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  right: 0;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {

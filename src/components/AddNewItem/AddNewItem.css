@@ -10,8 +10,9 @@ body{
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
-    height: 100vh;
+    height: auto;
     margin-top: -16px;
+    padding-bottom: 50px;
     
 }
 .form-container-addNewItem{

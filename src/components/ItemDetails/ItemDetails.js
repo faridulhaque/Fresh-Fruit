@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import './itemDetails.css';
 
+
 const ItemDetails = () => {
     const {itemDetail} = useParams();
     const [itemInfo, setItemInfo] = useState({});
