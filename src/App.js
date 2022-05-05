@@ -9,6 +9,7 @@ import Footer from './components/Footer/Footer';
 import Home from './components/Home/Home';
 import ItemDetails from './components/ItemDetails/ItemDetails';
 import ManageItems from './components/ManageItems/ManageItems';
+import MyItems from './components/MyItems/MyItems';
 
 
 import Navbar from './components/Navbar/Navbar';
@@ -28,8 +29,9 @@ function App() {
         <Route path="/" element={<Home></Home>} ></Route>
         <Route path="/blog" element={<Blog></Blog>}></Route>
         <Route path="/supplier" element={<Supplier></Supplier>}></Route>
-        <Route path="/manageItems" element={<ManageItems></ManageItems>}></Route>
-        <Route path="/addNewItem" element={<AddNewItem></AddNewItem>}></Route>
+        <Route path="/manageItems" element={<RequireAuth><ManageItems></ManageItems></RequireAuth>}></Route>
+        <Route path="/addNewItem" element={<RequireAuth><AddNewItem></AddNewItem></RequireAuth>}></Route>
+        <Route path="/myItems" element={<RequireAuth><MyItems></MyItems></RequireAuth>}></Route>
         <Route path="/register" element={<SignUp></SignUp>}></Route>
         <Route path="/signIn" element={<SignIn></SignIn>}></Route>
         <Route path="/home/:itemDetail" element={<RequireAuth><ItemDetails></ItemDetails></RequireAuth>}></Route>
