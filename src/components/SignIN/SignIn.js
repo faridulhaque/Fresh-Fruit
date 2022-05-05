@@ -2,16 +2,18 @@ import { GoogleAuthProvider, sendPasswordResetEmail, signInWithEmailAndPassword,
 import React, { useState } from "react";
 import toast from "react-hot-toast";
 import { Link, useLocation, useNavigate } from "react-router-dom";
+import { ClipLoader } from "react-spinners";
 
 
 import { auth } from "../../Firebase/firebase.init";
+import { useItems } from "../hooks/useItems";
 
 import "./SignIn.css";
 
 const provider = new GoogleAuthProvider();
 
 const SignIn = () => {
-  
+  const [items, setItems, loading] = useItems();
   const [authError, setAuthError] = useState('');
   const [email, setEmail] = useState({value: "", error: ""});
   const [password, setPassword] = useState({value: "", error: ""});
@@ -94,6 +96,9 @@ const SignIn = () => {
 
   return (
     <div className="signIn">
+      <div className="manage-loading">
+        {loading && <ClipLoader color={"red"} loading={loading} size={100} />}
+      </div>
       <div className="signIn-form-container">
         <h2 className="signIn-h2">Sign In to Continue...</h2>
         <form onSubmit={helpMeSignInWithEmailPass}>

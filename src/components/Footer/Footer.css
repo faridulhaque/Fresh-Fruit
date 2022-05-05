@@ -1,6 +1,18 @@
 .footer {
-    height: 100px;
+    height: auto;
     width: 100%;
     background-color: black;
+    padding-bottom: 10px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    
+    justify-items: space-evenly;
+    align-items: center;
+    grid-column-gap: 30px;
    
+}
+.div-in-footer {
+    
+    display: flex;
+    justify-content: center;
 }

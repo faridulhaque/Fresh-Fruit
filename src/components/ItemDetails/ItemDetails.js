@@ -16,8 +16,9 @@ const ItemDetails = () => {
 
   const reduceQuantity = () => {
     const quantity = parseInt(itemInfo.quantity) - 1;
+    const sold = parseInt(itemInfo.quantity) +1;
 
-    const updatedInfo = { quantity };
+    const updatedInfo = { quantity, sold };
     const url = `http://localhost:5000/fruit/${itemDetail}`;
     fetch(url, {
       method: "PUT",
@@ -28,7 +29,7 @@ const ItemDetails = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
+        
       });
   };
   const restockItem = (e) => {
@@ -56,38 +57,61 @@ const ItemDetails = () => {
   };
   return (
     <div className="item-details">
-      <h2 className="text-center mt-3">Details of {itemInfo.name}</h2>
+      {/* <h2 className="text-center mt-3">Item Details</h2> */}
       <div className="container mt-3 mb-5 container-itemDetails">
         <div className="info-itemDetails">
           <div className="info-text-itemDetails">
-            <p>
-              <b>Fruit's Name: </b> {itemInfo.name}
-            </p>
-            <p>
-              <b>Supplier: </b>
-              {itemInfo.supplier}
-            </p>
-            <p>
-              <b>Description: </b> {itemInfo.description}
-            </p>
-            <p>
-              <b>Price: </b> $ {itemInfo.price} (Per KG)
-            </p>
-            <p>
-              <b>Quantity: </b> {itemInfo.quantity} (KG)
-            </p>
-          </div>
+            <div className="nameAndDesc">
+              <h2>{itemInfo.name}</h2>
+              <p>
+                <b>{itemInfo.description} </b>
+              </p>
+            </div>
+            <div className="others-item-detail">
+              <div>
+                <p className="p-in-itemDetails-others">
+                  <b>Supplier</b>
+                </p>
+                <p className="p-in-itemDetails-others">{itemInfo.supplier}</p>
+              </div>
 
-          <div className="form-wrapper">
+              <div>
+                <p className="p-in-itemDetails-others">
+                  <b>Price </b>
+                </p>
+                <p className="p-in-itemDetails-others">
+                  $ {itemInfo.price} (Per KG)
+                </p>
+              </div>
+              <div>
+                <p className="p-in-itemDetails-others">
+                  <b>Quantity </b>
+                </p>
+                <p className="p-in-itemDetails-others">
+                  {itemInfo.quantity} (KG)
+                </p>
+              </div>
+              <div>
+                <p className="p-in-itemDetails-others">
+                  <b>Sold </b>
+                </p>
+                <p className="p-in-itemDetails-others">{itemInfo.sold} (KG)</p>
+              </div>
+            </div>
+            <div className="form-wrapper">
             <form onSubmit={restockItem}>
-              <input
+                <div className="input-container-itemDetails">
+                <input
                 className="input-number-itemDetails"
                 type="number"
                 name="number"
                 id="number"
                 placeholder="Restock Your Item"
               />
-              <button className="button-number-itemDetails" type="submit">
+                </div>
+              
+              <br/>
+              <button className="btn-itemDetails" type="submit">
                 Restock
               </button>
             </form>
@@ -95,9 +119,16 @@ const ItemDetails = () => {
           <button onClick={reduceQuantity} className="btn-itemDetails">
             Delivered
           </button>
+          </div>
+
+         
         </div>
         <div className="img-itemDetails">
-          <img style={{width: '100%', height: '100%'}} src={itemInfo.img} alt="" />
+          <img
+            style={{ width: "100%", height: "100%" }}
+            src={itemInfo.img}
+            alt=""
+          />
         </div>
       </div>
     </div>

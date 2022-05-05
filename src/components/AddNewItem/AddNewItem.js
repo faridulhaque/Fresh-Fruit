@@ -16,6 +16,7 @@ const AddNewItem = () => {
     const supplier = e.target.supplierName.value;
     const img = e.target.image.value;
     const email = e.target.email.value;
+    const sold = 0;
 
     const allData = {
       name,
@@ -25,6 +26,7 @@ const AddNewItem = () => {
       supplier,
       img,
       email,
+      sold
     };
 
     const url = "http://localhost:5000/fruits";
@@ -74,7 +76,7 @@ const AddNewItem = () => {
                 type="text"
                 name="name"
                 placeholder="Add item's name"
-              ></input>
+              required></input>
             </div>
             <div className="input-wrapper-ani">
               <label className="label-ani">Supplier</label>
@@ -85,7 +87,7 @@ const AddNewItem = () => {
                 type="text"
                 name="supplierName"
                 placeholder="Add the supplier's name"
-              ></input>
+              required></input>
             </div>
             <div className="input-wrapper-ani">
               <label className="label-ani">Price</label>
@@ -96,7 +98,7 @@ const AddNewItem = () => {
                 type="text"
                 name="price"
                 placeholder="Add a price"
-              ></input>
+              required></input>
             </div>
 
             <div className="input-wrapper-ani">
@@ -108,7 +110,7 @@ const AddNewItem = () => {
                 type="text"
                 name="quantity"
                 placeholder="Add a quantity"
-              ></input>
+              required></input>
             </div>
             <div className="input-wrapper-ani">
               <label className="label-ani">Image URL</label>
@@ -119,7 +121,7 @@ const AddNewItem = () => {
                 type="text"
                 name="image"
                 placeholder="Add an image URL"
-              ></input>
+              required></input>
             </div>
             <div className="input-wrapper-ani">
               <label className="label-ani">Email</label>
@@ -145,7 +147,7 @@ const AddNewItem = () => {
                 className="textarea-ani"
                 name="description"
                 placeholder="Add an additional info"
-              ></textarea>
+              required></textarea>
             </div>
             <div className="div-for-btn-ani">
               <button className="btn-submit-ani"type="Submit">Add Item</button>

@@ -1,21 +1,42 @@
-.manage-item{
-    height: 100vh;
-    
+.manage-item {
+  position: relative;
+  height: 100vh;
+
 }
-.fa-ban{
-    color: red !important;
+
+.fa-ban {
+  color: red !important;
+  margin-left: 12px !important;
+  cursor: pointer;
 }
-.my-popup-content {
-    margin: auto;
-    background: rgb(255, 255, 255);
-    width: 50%;
-    padding: 5px;
-  }
+
+.fa-pen-to-square {
+  cursor: pointer;
+  margin-left: 5px !important;
+  color: green !important;
+}
+.btn-manageItem-toAddNewItem{
+  border: none;
+  border-radius: 5px;
+  background-color: black;
+  color: white;
+  padding: 5px 10px;
+  position: absolute;
+  right: 10px;
+  top: 5px;
   
+}
+.btn-manageItem-toAddNewItem:hover{
+  color: black;
+  background-color: white;
+  border: 2px solid black;
+}
+.manage-loading{
   
-  .my-popup-overlay {
-    background: rgba(0, 0, 0, 0.5);
-  }
-  [data-popup='tooltip'].my-popup-overlay {
-    background: transparent;
-  }
+  margin: 0;
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}

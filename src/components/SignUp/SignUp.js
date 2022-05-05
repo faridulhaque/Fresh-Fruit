@@ -5,9 +5,12 @@ import './SignUp.css';
 import { auth } from "../../Firebase/firebase.init";
 // import useFirebaseHooks from "../hooks/useFirebaseHooks";
 import { Link, useLocation, useNavigate } from "react-router-dom";
+import { useItems } from "../hooks/useItems";
+import { ClipLoader } from "react-spinners";
 const provider = new GoogleAuthProvider();
 
 const SignUp = () => {
+  const [items, setItems, loading] = useItems();
   const [email, setEmail] = useState({value: "", error: ""});
   const [password, setPassword] = useState({value: "", error: ""});
 
@@ -77,7 +80,9 @@ const SignUp = () => {
   
   return (
     <div className="sign-up">
-      
+      <div className="manage-loading">
+        {loading && <ClipLoader color={"red"} loading={loading} size={100} />}
+      </div>
       <div className="form-wrapper-signUp">
       <h2 className="signUp-h2-top">Sign Up Here!</h2>
         <form onSubmit={signMeUpWithEmailAndPassword}>
