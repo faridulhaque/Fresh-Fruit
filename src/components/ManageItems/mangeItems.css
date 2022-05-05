@@ -5,3 +5,17 @@
 .fa-ban{
     color: red !important;
 }
+.my-popup-content {
+    margin: auto;
+    background: rgb(255, 255, 255);
+    width: 50%;
+    padding: 5px;
+  }
+  
+  
+  .my-popup-overlay {
+    background: rgba(0, 0, 0, 0.5);
+  }
+  [data-popup='tooltip'].my-popup-overlay {
+    background: transparent;
+  }

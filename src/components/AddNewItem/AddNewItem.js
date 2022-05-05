@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import toast from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
 import { useTheUser } from "../hooks/useTheUser";
 import "./AddNewItem.css";
 
 const AddNewItem = () => {
   const currentUser = useTheUser();
-  console.log(currentUser);
+  const navigate = useNavigate();
   const addNewItem = (e) => {
     e.preventDefault();
     const name = e.target.name.value;
@@ -36,10 +37,15 @@ const AddNewItem = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        toast.success('Item Successfully Added',{id: 'itemAdded'});
+        
+        const proceed = window.confirm(`Item Successfully Added! 
+        Want to navigate to the 'Manage items' page?`);
+        if(proceed){
+          navigate("/manageItems");
+        }
       });
   };
-  const [error, setError] = useState("");
+  
 
   return (
     <div className="ani-main">
