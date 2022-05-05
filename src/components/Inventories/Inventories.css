@@ -1,13 +1,15 @@
 .items{
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    margin-left: 40px;
+    justify-items: center;
+    
+    
 }
 .single-item-inventories{
     width: 250px;
     height: 500px;
     padding-bottom: 25px;
-    margin-left: 10px;
+    
     margin-top: 50px;
     margin-bottom: 50px;
     position: relative;
@@ -78,4 +80,24 @@
     border: 1px solid rgb(11, 158, 11);
     background-color: white;
 
+}
+.manage-inventories-btn{
+    width: 250px;
+    height: 40px;
+    color: white;
+    background-color: green;
+    border-radius: 5px;
+    position: absolute;
+    right: 0;
+    left: 0;
+    
+    margin: auto;
+    border: 0;
+    cursor: pointer;
+}
+.manage-inventories-btn:hover{
+    color: rgb(11, 158, 11);
+    border: 1px solid rgb(11, 158, 11);
+    background-color: white;
+    transition: background-color 0.5s;
 }

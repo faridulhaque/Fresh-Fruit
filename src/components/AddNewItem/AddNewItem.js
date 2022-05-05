@@ -37,7 +37,7 @@ const AddNewItem = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        
+        refreshForm();
         const proceed = window.confirm(`Item Successfully Added! 
         Want to navigate to the 'Manage items' page?`);
         if(proceed){
@@ -45,6 +45,14 @@ const AddNewItem = () => {
         }
       });
   };
+  const refreshForm = () =>{
+    document.getElementById('name').value='';
+    document.getElementById('price').value='';
+    document.getElementById('supplier').value='';
+    document.getElementById('quantity').value='';
+    document.getElementById('description').value='';
+    document.getElementById('image').value='';
+  }
   
 
   return (
@@ -59,6 +67,9 @@ const AddNewItem = () => {
               <label className="label-ani">Product's Name</label>
               <br />
               <input
+              id ="name"
+              
+              
                 className="input-box-ani"
                 type="text"
                 name="name"
@@ -69,6 +80,7 @@ const AddNewItem = () => {
               <label className="label-ani">Supplier</label>
               <br />
               <input
+              id ="supplier"
                 className="input-box-ani"
                 type="text"
                 name="supplierName"
@@ -79,6 +91,7 @@ const AddNewItem = () => {
               <label className="label-ani">Price</label>
               <br />
               <input
+              id ="price"
                 className="input-box-ani"
                 type="text"
                 name="price"
@@ -90,6 +103,7 @@ const AddNewItem = () => {
               <label className="label-ani">Quantity</label>
               <br />
               <input
+              id ="quantity"
                 className="input-box-ani"
                 type="text"
                 name="quantity"
@@ -100,6 +114,7 @@ const AddNewItem = () => {
               <label className="label-ani">Image URL</label>
               <br />
               <input
+              id ="image"
                 className="input-box-ani"
                 type="text"
                 name="image"
@@ -110,6 +125,7 @@ const AddNewItem = () => {
               <label className="label-ani">Email</label>
               <br />
               <input
+              
                 className="input-box-ani"
                 type="email"
                 name="email"
@@ -125,6 +141,7 @@ const AddNewItem = () => {
               <label className="label-ani">Description</label>
               <br/>
               <textarea
+              id ="description"
                 className="textarea-ani"
                 name="description"
                 placeholder="Add an additional info"

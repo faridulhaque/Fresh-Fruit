@@ -13,8 +13,12 @@ const Inventories = () => {
     navigate(`home/${id}`);
   };
 
+const goToMangeInventories = () =>{
+  navigate('./manageItems')
+}
+
   return (
-    <div className="mb-5">
+    <div className="mb-5 pb-5">
       <h1 className="mt-5 text-center">Inventories</h1>
       <div className="items container">
         {sixItems.map((item) => (
@@ -57,6 +61,7 @@ const Inventories = () => {
           </div>
         ))}
       </div>
+      <button onClick={goToMangeInventories} className="manage-inventories-btn">Mange Inventories</button>
     </div>
   );
 };
