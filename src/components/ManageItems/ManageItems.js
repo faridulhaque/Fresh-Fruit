@@ -54,7 +54,7 @@ const ManageItems = () => {
           Add New Item{" "}
         </button>
         <div>
-          <table className="table mt-5">
+          <table className="table mt-5 w-sm-25">
             <thead>
               <tr>
                 <th scope="col">ID</th>
