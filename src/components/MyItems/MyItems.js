@@ -48,7 +48,7 @@ const MyItems = () => {
   };
   return (
     <div className="myItems-container container">
-      <h2 className="text-center">My Items</h2>
+      <h2 className="text-center mt-sm-5">My Items</h2>
       <table className="table mt-5">
         <thead>
           <tr>

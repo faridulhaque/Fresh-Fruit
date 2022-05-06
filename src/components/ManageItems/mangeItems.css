@@ -42,7 +42,9 @@
   transform: translate(-50%, -50%);
 }
 @media only screen and (max-width: 570px) {
-  .table{
-    width: 100% !important;
+  
+  .btn-manageItem-toAddNewItem{
+    position: static;
+    
   }
 }

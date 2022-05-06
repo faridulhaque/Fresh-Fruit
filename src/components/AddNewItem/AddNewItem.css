@@ -95,3 +95,22 @@ body{
     color: brown;
 
 }
+@media only screen and (max-width: 600px) {
+    .form-container-addNewItem{
+       
+        width: 90%;
+        
+        margin-left: 5%;
+        
+        
+    }
+    .btn-submit-ani{
+        
+        height: 30px;
+        font-size: auto;
+       
+    }
+    .label-ani{
+        font-size: auto;
+    }
+  }

@@ -44,7 +44,7 @@ const ManageItems = () => {
         {loading && <ClipLoader color={"red"} loading={loading} size={100} />}
       </div>
 
-      <h1 className="text-center mt-3 mb-5">Manage Items</h1>
+      <h1 className="text-center mt-5 mb-5">Manage Items</h1>
 
       <div className="container">
         <button
@@ -54,7 +54,7 @@ const ManageItems = () => {
           Add New Item{" "}
         </button>
         <div>
-          <table className="table mt-5 w-sm-25">
+          <table className="table mt-5">
             <thead>
               <tr>
                 <th scope="col">ID</th>

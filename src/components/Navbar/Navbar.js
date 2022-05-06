@@ -114,7 +114,7 @@ const Navbar = () => {
                   <li>
                     <hr className="dropdown-divider" />
                   </li>
-                  <li className="dropdown-signOut">
+                  <li className="">
                     <button onClick={logout} className="dropdown-item">
                       Sign Out 
                     </button>
