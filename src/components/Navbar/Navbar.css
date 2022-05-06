@@ -7,7 +7,7 @@
     align-items: center !important;
 }
 .fa-solid{
-    color: black;
+    color: white !important;
     font-size: 20px;
 }
 .navbar{
@@ -24,5 +24,11 @@
     color: white !important;
 }
 .navbar-nav{
-    margin-right: 100px !important;
+    margin-right: 100px!important;
 }
+/* responsive for mobile */
+@media only screen and (max-width: 570px) {
+    .dropdown-signOut{
+        margin-left: 120px !important;
+    }
+  }

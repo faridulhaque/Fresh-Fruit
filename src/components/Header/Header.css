@@ -35,4 +35,29 @@
     position: absolute;
     
 }
-
+@media only screen and (max-width: 570px) {
+    .header{
+        background: none;
+       
+        height: auto;
+    }
+    .header-all-text-h1{
+    
+        color: black;
+        font-size: auto;
+    
+        text-align: center;
+        position: static;
+        
+    }
+    .header-all-text-para{
+    
+        color: black;
+        font-size: auto;
+    
+        text-align: center;
+        
+        position: static;
+        
+    }
+  }

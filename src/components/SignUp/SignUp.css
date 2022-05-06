@@ -68,3 +68,17 @@
 .breakingLine-small-signup a{
     color: green;
 }
+/* responsive for mobile devices */
+@media only screen and (max-width: 600px) {
+    .sign-up{
+        height: 650px;
+        padding-top: 50px;
+        
+    }
+    .form-wrapper-signUp{
+        position: static;
+        margin-top: 50px;
+        padding: 35px 0;
+        
+    }
+  }

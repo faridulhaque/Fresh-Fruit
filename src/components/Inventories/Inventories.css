@@ -101,3 +101,13 @@
     background-color: white;
     transition: background-color 0.5s;
 }
+/* responsive for mobile devices */
+@media only screen and (max-width: 570px) {
+    .items{
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+    
+        
+        
+    }
+  }

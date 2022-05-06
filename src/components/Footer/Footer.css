@@ -44,3 +44,30 @@
     color: white;
     margin-left: 40px;
 }
+/* responsive for mobile devices */
+@media only screen and (max-width: 570px) {
+    .footer-top{
+       
+        height: auto;
+        font-size: auto;
+        padding-bottom: 5px;
+        
+        
+    }
+    .copyright{
+        display: block;
+        text-align: center;
+        color: white;
+        position: static;
+        margin-bottom: 10px;
+        
+        
+    }
+    .footer-bottom{
+        
+        height: 140px;
+        
+        position: static;
+        padding: 10px 0 25px 0;
+    }
+  }

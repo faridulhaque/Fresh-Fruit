@@ -108,3 +108,16 @@
     cursor: pointer;
     
 }
+/* responsive for mobile devices */
+@media only screen and (max-width: 600px) {
+    .signIn{
+       
+        height: 630px;
+        padding-top: 28px;
+        
+    }
+    .signIn-form-container{
+        position: static;
+        margin-top: 25px;
+    }
+  }

@@ -42,3 +42,16 @@
     cursor: pointer;
     margin-top: 15px;
 }
+/* responsive for mobile devices*/
+@media only screen and (max-width: 600px) {
+    .as-main{
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        
+        justify-items: center;
+        
+        
+        grid-column-gap: 20px;
+    }
+    
+  }
