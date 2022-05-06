@@ -16,3 +16,9 @@
     display: flex;
     justify-content: center;
 }
+.fa-google-plus-g{
+   color: rgb(165,42,42);
+}
+.fa-facebook-f{
+    color: rgb(72,103,170);
+}

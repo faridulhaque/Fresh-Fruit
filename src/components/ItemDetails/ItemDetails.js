@@ -16,9 +16,10 @@ const ItemDetails = () => {
 
   const reduceQuantity = () => {
     const quantity = parseInt(itemInfo.quantity) - 1;
-    const sold = parseInt(itemInfo.quantity) +1;
+    const sold = parseInt(itemInfo.sold) + 1;
+    console.log(itemInfo.sold)
 
-    const updatedInfo = { quantity, sold };
+    const updatedInfo = { quantity, sold};
     const url = `http://localhost:5000/fruit/${itemDetail}`;
     fetch(url, {
       method: "PUT",
@@ -129,6 +130,7 @@ const ItemDetails = () => {
             src={itemInfo.img}
             alt=""
           />
+          <h6 className="mt-3">ID: {itemInfo._id}</h6>
         </div>
       </div>
     </div>

@@ -3,10 +3,11 @@ import "./Footer.css";
 
 const Footer = () => {
   const styleForIcon = {
-    color: "white",
-    display: "block",
+    
+    
     fontSize: "36px",
     marginTop: "15px",
+    marginLeft: "15px",
     cursor: "pointer"
   };
 
@@ -15,8 +16,8 @@ const Footer = () => {
       <div className="div-in-footer">
         <div className="">
           <h4 style={{ color: "white" }}>Address</h4>
-          <small style={{ color: "white" }}>House No: 9</small>
-          <br />
+          <small style={{ color: "white" }}>House No: 9, </small>
+          
           <small style={{ color: "white" }}>Road No: 10</small>
           <br />
           <small style={{ color: "white" }}>Lovely city, New York.</small>
@@ -34,11 +35,11 @@ const Footer = () => {
       </div>
       <div className="div-in-footer">
         <div>
-          <i style={styleForIcon} className="fa-brands fa-facebook"></i>
+          <i style={styleForIcon} className="fa-brands fa-facebook-f"></i>
           <i
             style={styleForIcon}
-            className="fa-brands fa-google-plus-square"
-          ></i>
+            className="fa-brands fa-google-plus-g"></i>"
+          
         </div>
       </div>
     </div>
