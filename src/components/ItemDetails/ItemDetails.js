@@ -7,7 +7,7 @@ const ItemDetails = () => {
   const [itemInfo, setItemInfo] = useState({});
 
   useEffect(() => {
-    fetch(`http://localhost:5000/fruit/${itemDetail}`)
+    fetch(`https://serene-bastion-77900.herokuapp.com/fruit/${itemDetail}`)
       .then((res) => res.json())
       .then((data) => {
         setItemInfo(data);
@@ -20,7 +20,7 @@ const ItemDetails = () => {
     console.log(itemInfo.sold)
 
     const updatedInfo = { quantity, sold};
-    const url = `http://localhost:5000/fruit/${itemDetail}`;
+    const url = `https://serene-bastion-77900.herokuapp.com/fruit/${itemDetail}`;
     fetch(url, {
       method: "PUT",
       headers: {
@@ -40,7 +40,7 @@ const ItemDetails = () => {
         parseInt(itemInfo.quantity) + parseInt(e.target.number.value);
 
       const updatedInfo = { quantity };
-      const url = `http://localhost:5000/fruit/${itemDetail}`;
+      const url = `https://serene-bastion-77900.herokuapp.com/fruit/${itemDetail}`;
       fetch(url, {
         method: "PUT",
         headers: {

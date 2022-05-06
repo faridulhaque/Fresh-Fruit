@@ -4,7 +4,7 @@ export const useItems =() =>{
     const [loading, setLoading] = useState(true);
     const [items, setItems] = useState([]);
     useEffect(()=>{
-        fetch('http://localhost:5000/fruits')
+        fetch('https://serene-bastion-77900.herokuapp.com/fruits')
         .then(res => res.json())
         .then(data => {
             setItems(data);

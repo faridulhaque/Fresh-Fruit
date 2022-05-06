@@ -3,44 +3,42 @@ import "./Footer.css";
 
 const Footer = () => {
   const styleForIcon = {
-    
-    
     fontSize: "36px",
     marginTop: "15px",
     marginLeft: "15px",
-    cursor: "pointer"
+    cursor: "pointer",
   };
 
   return (
     <div className="footer">
-      <div className="div-in-footer">
-        <div className="">
-          <h4 style={{ color: "white" }}>Address</h4>
-          <small style={{ color: "white" }}>House No: 9, </small>
-          
-          <small style={{ color: "white" }}>Road No: 10</small>
-          <br />
-          <small style={{ color: "white" }}>Lovely city, New York.</small>
-          <br />
+      <div className="footer-top">
+        <div className="fresh-fruit-writing">Fresh Fruit</div>
+        <div className="icon-container">
+          <i class="fa-brands fa-facebook-f"></i>
+          <i class="fa-brands fa-google"></i>
+          <i class="fa-brands fa-twitter"></i>
+          <i class="fa-brands fa-whatsapp"></i>
         </div>
       </div>
-
-      <div className="div-in-footer-middle">
-        <h3 className="text-center text-light">Fresh Fruit</h3>
-        <small
-          style={{ color: "white", display: "block", textAlign: "center" }}
-        >
-          ©copyright {new Date().getFullYear()}
-        </small>
-      </div>
-      <div className="div-in-footer">
+      <div className="footer-bottom bg-secondary">
+        <div></div>
         <div>
-          <i style={styleForIcon} className="fa-brands fa-facebook-f"></i>
-          <i
-            style={styleForIcon}
-            className="fa-brands fa-google-plus-g"></i>"
-          
+          <p style={{ color: "white", marginLeft: "40px", marginTop: "10px"}}>Contact Us</p>
+          <div  style={{marginTop: "-8px"}}>
+            <small className="contact-text-footer">
+              {" "}
+              House No: 13, Road No: 7{" "}
+            </small>
+
+            <br />
+            <small className="contact-text-footer">Email: fresh@fruit.co</small>
+            <br />
+            <small className="contact-text-footer">
+              Phone: +911 12345678901
+            </small>
+          </div>
         </div>
+        <small className="copyright">©Fresh Fruit{' '}{new Date().getFullYear()}</small>
       </div>
     </div>
   );

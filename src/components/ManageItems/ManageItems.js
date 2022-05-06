@@ -25,7 +25,7 @@ const ManageItems = () => {
     );
 
     if (confirmation === id) {
-      const url = `http://localhost:5000/fruit/${id}`;
+      const url = `https://serene-bastion-77900.herokuapp.com/fruit/${id}`;
       fetch(url, {
         method: "DELETE",
       })
@@ -69,13 +69,13 @@ const ManageItems = () => {
             <tbody>
               {items.map((item) => (
                 <tr key={item._id}>
-                  <th className="bg-info" scope="col">
+                  <th className="bg-light" scope="col">
                     {item._id}
                   </th>
-                  <th scope="col">{item.name}</th>
-                  <th scope="col">{item.supplier}</th>
-                  <th scope="col">${item.price + " "}(Per KG)</th>
-                  <th scope="col">{item.quantity + " "} KG</th>
+                  <th className="bg-info" scope="col">{item.name}</th>
+                  <th className="bg-primary" scope="col">{item.supplier}</th>
+                  <th className="bg-info" scope="col">${item.price + " "}(Per KG)</th>
+                  <th className="bg-primary" scope="col">{item.quantity + " "} KG</th>
                   <th scope="col">
                     <i
                       onClick={() => editTheItem(item._id)}

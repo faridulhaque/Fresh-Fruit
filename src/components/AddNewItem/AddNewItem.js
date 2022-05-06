@@ -29,7 +29,7 @@ const AddNewItem = () => {
       sold
     };
 
-    const url = "http://localhost:5000/fruits";
+    const url = "https://serene-bastion-77900.herokuapp.com/fruits";
     fetch(url, {
       method: "POST",
       headers: {

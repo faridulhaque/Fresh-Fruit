@@ -42,7 +42,7 @@ const Navbar = () => {
   return (
     <div>
       {/* that is navbar developed with the bootstrap framework. color and style updated with css */}
-      <nav className="navbar navbar-expand-lg bg-light p-3">
+      <nav className="navbar navbar-expand-lg bg-secondary p-3">
         <div className="container-fluid">
           <button
             className="navbar-toggler"

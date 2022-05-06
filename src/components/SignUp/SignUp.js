@@ -1,4 +1,4 @@
-import { createUserWithEmailAndPassword, GoogleAuthProvider, signInWithPopup } from "firebase/auth";
+import { createUserWithEmailAndPassword, GoogleAuthProvider, sendEmailVerification, signInWithPopup } from "firebase/auth";
 import React, { useState } from "react";
 import './SignUp.css';
 
@@ -7,6 +7,7 @@ import { auth } from "../../Firebase/firebase.init";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useItems } from "../hooks/useItems";
 import { ClipLoader } from "react-spinners";
+import toast from "react-hot-toast";
 const provider = new GoogleAuthProvider();
 
 const SignUp = () => {
@@ -52,7 +53,8 @@ const SignUp = () => {
         .then((userCredential) => {
           const user = userCredential.user;
           navigate(from, { replace: true });
-          console.log(user);
+          emailVerify();
+          toast.success("A verification email has been sent to your email address", { id: "emailVerificationSent" });
           
         
           
@@ -62,6 +64,12 @@ const SignUp = () => {
           console.log(errorMessage);
         });
 
+  }
+  const emailVerify = () =>{
+    sendEmailVerification(auth.currentUser)
+  .then(() => {
+    console.log('email sent');
+  });
   }
 
   const signMeUpWithGoogle =() =>{

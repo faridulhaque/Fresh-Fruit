@@ -22,7 +22,7 @@ const MyItems = () => {
   const [items, setItems] = useState([]);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/myItems?email=${email}`)
+    fetch(`https://serene-bastion-77900.herokuapp.com/myItems?email=${email}`)
       .then((res) => res.json())
       .then((data) => {
         setItems(data);
@@ -34,7 +34,7 @@ const MyItems = () => {
       "Please copy the ID from the table and paste here to confirm deletion"
     );
     if (confirmation === id) {
-      const url = `http://localhost:5000/fruit/${id}`;
+      const url = `https://serene-bastion-77900.herokuapp.com/fruit/${id}`;
       fetch(url, {
         method: "DELETE",
       })
@@ -52,25 +52,25 @@ const MyItems = () => {
       <table className="table mt-5">
         <thead>
           <tr>
-            <th scope="col">ID</th>
-            <th scope="col">Name</th>
-            <th scope="col">Supplier</th>
-            <th scope="col">Price</th>
-            <th scope="col">Quantity</th>
-            <th scope="col"> Edit</th>
-            <th scope="col"> Delete</th>
+            <th className="" scope="col">ID</th>
+            <th className="" scope="col">Name</th>
+            <th className="" scope="col">Supplier</th>
+            <th className="" scope="col">Price</th>
+            <th className="" scope="col">Quantity</th>
+            
+            <th className="" scope="col"> Delete</th>
           </tr>
         </thead>
         <tbody>
               {items.map((item) => (
                 <tr key={item._id}>
-                  <th className="bg-info" scope="col">
+                  <th className="bg-light" scope="col">
                     {item._id}
                   </th>
-                  <th scope="col">{item.name}</th>
-                  <th scope="col">{item.supplier}</th>
-                  <th scope="col">${item.price + " "}(Per KG)</th>
-                  <th scope="col">{item.quantity + " "} KG</th>
+                  <th className="bg-info" scope="col">{item.name}</th>
+                  <th className="bg-primary" scope="col">{item.supplier}</th>
+                  <th className="bg-info" scope="col">${item.price + " "}(Per KG)</th>
+                  <th className="bg-primary" scope="col">{item.quantity + " "} KG</th>
                   
                   <th scope="col">
                     <i
