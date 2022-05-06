@@ -5,6 +5,7 @@ import { useTheUser } from "../hooks/useTheUser";
 import "./AddNewItem.css";
 
 const AddNewItem = () => {
+  
   const currentUser = useTheUser();
   const navigate = useNavigate();
   const addNewItem = (e) => {
@@ -17,6 +18,8 @@ const AddNewItem = () => {
     const img = e.target.image.value;
     const email = e.target.email.value;
     const sold = 0;
+     
+    
 
     const allData = {
       name,
@@ -27,6 +30,7 @@ const AddNewItem = () => {
       img,
       email,
       sold
+      
     };
 
     const url = "https://serene-bastion-77900.herokuapp.com/fruits";
@@ -123,6 +127,7 @@ const AddNewItem = () => {
                 placeholder="Add an image URL"
               required></input>
             </div>
+            
             <div className="input-wrapper-ani">
               <label className="label-ani">Email</label>
               <br />

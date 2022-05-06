@@ -5,6 +5,7 @@ import "./itemDetails.css";
 const ItemDetails = () => {
   const { itemDetail } = useParams();
   const [itemInfo, setItemInfo] = useState({});
+  // const [sold, setSold] = useState(itemInfo.sold);
 
   useEffect(() => {
     fetch(`https://serene-bastion-77900.herokuapp.com/fruit/${itemDetail}`)
@@ -16,8 +17,8 @@ const ItemDetails = () => {
 
   const reduceQuantity = () => {
     const quantity = parseInt(itemInfo.quantity) - 1;
-    const sold = parseInt(itemInfo.sold) + 1;
-    console.log(itemInfo.sold)
+    const sold = itemInfo.sold === null ? 0 : itemInfo.sold+1;
+    console.log(sold);
 
     const updatedInfo = { quantity, sold};
     const url = `https://serene-bastion-77900.herokuapp.com/fruit/${itemDetail}`;
@@ -38,8 +39,10 @@ const ItemDetails = () => {
     if (parseInt(e.target.number.value) >= 1) {
       const quantity =
         parseInt(itemInfo.quantity) + parseInt(e.target.number.value);
+      const sold = itemInfo.sold;
+      console.log(sold);
 
-      const updatedInfo = { quantity };
+      const updatedInfo = { quantity, sold};
       const url = `https://serene-bastion-77900.herokuapp.com/fruit/${itemDetail}`;
       fetch(url, {
         method: "PUT",
@@ -50,7 +53,7 @@ const ItemDetails = () => {
       })
         .then((res) => res.json())
         .then((data) => {
-          console.log(data);
+          
         });
     } else {
       alert("Input value must be above 0");
@@ -96,8 +99,11 @@ const ItemDetails = () => {
                 <p className="p-in-itemDetails-others">
                   <b>Sold </b>
                 </p>
-                <p className="p-in-itemDetails-others">{itemInfo.sold} (KG)</p>
+                <p className="p-in-itemDetails-others">
+                  {itemInfo.sold} (KG)
+                </p>
               </div>
+              
             </div>
             <div className="form-wrapper">
             <form onSubmit={restockItem}>
