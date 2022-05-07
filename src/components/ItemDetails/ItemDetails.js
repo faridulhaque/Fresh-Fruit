@@ -5,7 +5,7 @@ import "./itemDetails.css";
 const ItemDetails = () => {
   const { itemDetail } = useParams();
   const [itemInfo, setItemInfo] = useState({});
-  // const [sold, setSold] = useState(itemInfo.sold);
+  
 
   useEffect(() => {
     fetch(`https://serene-bastion-77900.herokuapp.com/fruit/${itemDetail}`)
@@ -13,11 +13,11 @@ const ItemDetails = () => {
       .then((data) => {
         setItemInfo(data);
       });
-  }, [itemInfo]);
+  }, [itemInfo, itemDetail]);
 
   const reduceQuantity = () => {
-    const quantity = parseInt(itemInfo.quantity) - 1;
-    const sold = itemInfo.sold === null ? 0 : itemInfo.sold+1;
+    const quantity = parseInt(itemInfo.quantity) === 0 ? 0 : itemInfo.quantity- 1;
+    const sold = (itemInfo.sold === null ? 0 : itemInfo.sold+1) && (parseInt(itemInfo.quantity) === 0 ? itemInfo.sold : itemInfo.sold + 1);
     console.log(sold);
 
     const updatedInfo = { quantity, sold};
@@ -91,9 +91,13 @@ const ItemDetails = () => {
                 <p className="p-in-itemDetails-others">
                   <b>Quantity </b>
                 </p>
-                <p className="p-in-itemDetails-others">
+                {
+                  itemInfo.quantity >= 1 ? <p className="p-in-itemDetails-others">
                   {itemInfo.quantity} (KG)
-                </p>
+                </p> : <p className="p-in-itemDetails-others">
+                  Not Available
+                </p> 
+                }
               </div>
               <div>
                 <p className="p-in-itemDetails-others">
