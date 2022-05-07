@@ -40,7 +40,7 @@ const ItemDetails = () => {
       const quantity =
         parseInt(itemInfo.quantity) + parseInt(e.target.number.value);
       const sold = itemInfo.sold;
-      console.log(sold);
+    
 
       const updatedInfo = { quantity, sold};
       const url = `https://serene-bastion-77900.herokuapp.com/fruit/${itemDetail}`;
@@ -132,6 +132,7 @@ const ItemDetails = () => {
         </div>
         <div className="img-itemDetails">
           <img
+          className=""
             style={{ width: "100%", height: "100%" }}
             src={itemInfo.img}
             alt=""
