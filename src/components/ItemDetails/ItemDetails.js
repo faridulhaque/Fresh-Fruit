@@ -16,8 +16,9 @@ const ItemDetails = () => {
   }, [itemInfo, itemDetail]);
 
   const reduceQuantity = () => {
+    
     const quantity = parseInt(itemInfo.quantity) === 0 ? 0 : itemInfo.quantity- 1;
-    const sold = (itemInfo.sold === null ? 0 : itemInfo.sold+1) && (parseInt(itemInfo.quantity) === 0 ? itemInfo.sold : itemInfo.sold + 1);
+    const sold = (itemInfo.sold === null ? -1 : itemInfo.sold+1) && (parseInt(itemInfo.quantity) === 0 ? itemInfo.sold : itemInfo.sold + 1);
     console.log(sold);
 
     const updatedInfo = { quantity, sold};

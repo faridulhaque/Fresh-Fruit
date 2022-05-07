@@ -6,6 +6,7 @@ import "./AddNewItem.css";
 
 const AddNewItem = () => {
   
+
   const currentUser = useTheUser();
   const navigate = useNavigate();
   const addNewItem = (e) => {
@@ -14,12 +15,11 @@ const AddNewItem = () => {
     const description = e.target.description.value;
     const price = e.target.price.value;
     const quantity = e.target.quantity.value;
+
     const supplier = e.target.supplierName.value;
     const img = e.target.image.value;
     const email = e.target.email.value;
-    const sold = 0;
-     
-    
+    const sold = null;
 
     const allData = {
       name,
@@ -29,37 +29,46 @@ const AddNewItem = () => {
       supplier,
       img,
       email,
-      sold
-      
+      sold,
+    };
+    const refreshForm = () => {
+      document.getElementById("name").value = "";
+      document.getElementById("price").value = "";
+      document.getElementById("supplier").value = "";
+      document.getElementById("quantity").value = "";
+      document.getElementById("description").value = "";
+      document.getElementById("image").value = "";
     };
 
-    const url = "https://serene-bastion-77900.herokuapp.com/fruits";
-    fetch(url, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(allData),
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        refreshForm();
-        const proceed = window.confirm(`Item Successfully Added! 
-        Want to navigate to the 'Manage items' page?`);
-        if(proceed){
-          navigate("/manageItems");
-        }
-      });
+    const sendingData = () => {
+      const url = "https://serene-bastion-77900.herokuapp.com/fruits";
+      fetch(url, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(allData),
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          refreshForm();
+          const proceed = window.confirm(`Item Successfully Added! 
+          Want to navigate to the 'Manage items' page?`);
+          if (proceed) {
+            navigate("/manageItems");
+          }
+        });
+    };
+    if(price && quantity >= 1){
+      sendingData();
+    }
+    else if(price <= 0){
+      alert('please input a positive number in your price field');
+    }
+    else if(quantity <= 0){
+      alert('please input a positive number in your quantity field');
+    }
   };
-  const refreshForm = () =>{
-    document.getElementById('name').value='';
-    document.getElementById('price').value='';
-    document.getElementById('supplier').value='';
-    document.getElementById('quantity').value='';
-    document.getElementById('description').value='';
-    document.getElementById('image').value='';
-  }
-  
 
   return (
     <div className="ani-main">
@@ -73,66 +82,70 @@ const AddNewItem = () => {
               <label className="label-ani">Product's Name</label>
               <br />
               <input
-              id ="name"
-              
-              
+                id="name"
                 className="input-box-ani"
                 type="text"
                 name="name"
                 placeholder="Add item's name"
-              required></input>
+                required
+              ></input>
             </div>
             <div className="input-wrapper-ani">
               <label className="label-ani">Supplier</label>
               <br />
               <input
-              id ="supplier"
+                id="supplier"
                 className="input-box-ani"
                 type="text"
                 name="supplierName"
                 placeholder="Add the supplier's name"
-              required></input>
+                required
+              ></input>
             </div>
             <div className="input-wrapper-ani">
               <label className="label-ani">Price</label>
               <br />
               <input
-              id ="price"
+                id="price"
                 className="input-box-ani"
-                type="text"
+                type="number"
                 name="price"
                 placeholder="Add a price"
-              required></input>
+                required
+              ></input>
+              
             </div>
 
             <div className="input-wrapper-ani">
               <label className="label-ani">Quantity</label>
               <br />
               <input
-              id ="quantity"
+                id="quantity"
                 className="input-box-ani"
-                type="text"
+                type="number"
                 name="quantity"
                 placeholder="Add a quantity"
-              required></input>
+                required
+              ></input>
+              
             </div>
             <div className="input-wrapper-ani">
               <label className="label-ani">Image URL</label>
               <br />
               <input
-              id ="image"
+                id="image"
                 className="input-box-ani"
                 type="text"
                 name="image"
                 placeholder="Add an image URL"
-              required></input>
+                required
+              ></input>
             </div>
-            
+
             <div className="input-wrapper-ani">
               <label className="label-ani">Email</label>
               <br />
               <input
-              
                 className="input-box-ani"
                 type="email"
                 name="email"
@@ -141,21 +154,23 @@ const AddNewItem = () => {
                 disabled
               ></input>
             </div>
-           
           </div>
           <div className="wrapper-bottom-ani mt-3">
-          <div>
+            <div>
               <label className="label-ani">Description</label>
-              <br/>
+              <br />
               <textarea
-              id ="description"
+                id="description"
                 className="textarea-ani"
                 name="description"
                 placeholder="Add an additional info"
-              required></textarea>
+                required
+              ></textarea>
             </div>
             <div className="div-for-btn-ani">
-              <button className="btn-submit-ani"type="Submit">Add Item</button>
+              <button className="btn-submit-ani" type="Submit">
+                Add Item
+              </button>
             </div>
           </div>
         </form>
