@@ -26,6 +26,10 @@
 .navbar-nav{
     margin-right: 100px!important;
 }
+.nav-item-hover:hover{
+    border-bottom: 2px solid rgb(0,128,0) !important;
+    color: green !important;
+}
 /* responsive for mobile */
 @media only screen and (max-width: 570px) {
     .dropdown-signOut{

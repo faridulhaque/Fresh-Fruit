@@ -62,30 +62,36 @@ const Navbar = () => {
           <div className="collapse navbar-collapse" id="navbarTogglerDemo03">
             <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
               <li className="nav-item ms-2">
-                <Link className="nav-link active" aria-current="page" to="/">
+                <Link className="nav-item-hover nav-link active" aria-current="page" to="/">
                   Home
                 </Link>
                 
               </li>
               
               <li className="nav-item ms-2">
-                <Link className="nav-link" to="/blog">
+                <Link className="nav-item-hover nav-link" to="/blog">
                   Blog
                 </Link>
               </li>
               
               <li className="nav-item ms-2">
-                <Link className="nav-link" to="/supplier">
+                <Link className="nav-item-hover nav-link" to="/supplier">
                   Suppliers
                 </Link>
               </li>
 
               {/* dropdown menu if user is logged In */}
               
-              {
-                currentUser?.uid && <li className="nav-item dropdown">
+              { 
+                !currentUser?.uid ?  <li className="nav-item ms-2">
+                <Link className="nav-item-hover nav-link" to="/signIn">
+                  SignIn
+                </Link>
+              </li> :
+                
+                <li className="nav-item dropdown">
                 <Link
-                  className="nav-link dropdown-toggle"
+                  className="nav-item-hover nav-link dropdown-toggle"
                   data-bs-toggle="dropdown"
                   to="/"
                   role="button"
