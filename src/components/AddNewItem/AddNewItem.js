@@ -1,14 +1,16 @@
 import React, { useState } from "react";
-import toast from "react-hot-toast";
+import { useMyOwnAlert } from "../hooks/useMyOwnAlert";
 import { useNavigate } from "react-router-dom";
 import { useTheUser } from "../hooks/useTheUser";
 import "./AddNewItem.css";
+import { Confirm } from "react-st-modal";
 
 const AddNewItem = () => {
   
 
   const currentUser = useTheUser();
   const navigate = useNavigate();
+  const {showingAlert} = useMyOwnAlert();
   const addNewItem = (e) => {
     e.preventDefault();
     const name = e.target.name.value;
@@ -40,6 +42,16 @@ const AddNewItem = () => {
       document.getElementById("image").value = "";
     };
 
+    const confirmation = async () => {
+      const result = await Confirm('Would you like to visit "My Items"?', 
+        'Item Successfully added!');
+      
+      if (result) {
+        navigate('/myItems');
+      }
+    }
+    
+
     const sendingData = () => {
       const url = "https://serene-bastion-77900.herokuapp.com/fruits";
       fetch(url, {
@@ -52,22 +64,16 @@ const AddNewItem = () => {
         .then((res) => res.json())
         .then((data) => {
           refreshForm();
-          const proceed = window.confirm(`Item Successfully Added! 
-          Want to navigate to the 'Manage items' page?`);
-          if (proceed) {
-            navigate("/manageItems");
-          }
+          confirmation();
         });
     };
-    if(price && quantity >= 1){
+    if(price >= 1 && quantity >= 1){
       sendingData();
     }
-    else if(price <= 0){
-      alert('please input a positive number in your price field');
+    else if(price <= 0 || quantity <= 0){
+      showingAlert();
     }
-    else if(quantity <= 0){
-      alert('please input a positive number in your quantity field');
-    }
+    
   };
 
   return (

@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import { useMyOwnAlert } from "../hooks/useMyOwnAlert";
 import "./itemDetails.css";
 
 const ItemDetails = () => {
   const { itemDetail } = useParams();
   const [itemInfo, setItemInfo] = useState({});
+  const {showingAlert} = useMyOwnAlert();
   
 
   useEffect(() => {
@@ -57,7 +59,7 @@ const ItemDetails = () => {
           
         });
     } else {
-      alert("Input value must be above 0");
+      showingAlert();
     }
   };
   return (
