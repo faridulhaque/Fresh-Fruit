@@ -5,10 +5,31 @@ import "./MyItems.css";
 import { signOut, onAuthStateChanged } from "firebase/auth";
 
 import { auth } from "../../Firebase/firebase.init";
+import { Prompt } from "react-st-modal";
 
 const MyItems = () => {
   const [currentUser, setCurrentUser] = useState({});
   const {email} = currentUser;
+  const deleteTheItem = async (receivedId) => {
+    const insertedId = await Prompt('Please copy the ID from the table and paste here to confirm deletion', {
+      isRequired: true,
+      
+    });
+
+    if (insertedId === receivedId) {
+      const url = `https://serene-bastion-77900.herokuapp.com/fruit/${receivedId}`;
+      fetch(url, {
+        method: "DELETE",
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          toast.success("Item Successfully Deleted", { id: "itemDel" });
+        });
+    }
+    else {
+          toast.error("ID did not match", { id: "itemDelNot" });
+        }
+  }
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
       if (user) {
@@ -29,23 +50,23 @@ const MyItems = () => {
       });
   }, [items]);
 
-  const deleteTheItem = (id) => {
-    const confirmation = window.prompt(
-      "Please copy the ID from the table and paste here to confirm deletion"
-    );
-    if (confirmation === id) {
-      const url = `https://serene-bastion-77900.herokuapp.com/fruit/${id}`;
-      fetch(url, {
-        method: "DELETE",
-      })
-        .then((res) => res.json())
-        .then((data) => {
-          toast.success("Item Successfully Deleted", { id: "itemDel" });
-        });
-    } else {
-      toast.error("ID did not match", { id: "itemDelNot" });
-    }
-  };
+  // const deleteTheItem = (id) => {
+  //   const confirmation = window.prompt(
+  //     "Please copy the ID from the table and paste here to confirm deletion"
+  //   );
+  //   if (confirmation === id) {
+  //     const url = `https://serene-bastion-77900.herokuapp.com/fruit/${id}`;
+  //     fetch(url, {
+  //       method: "DELETE",
+  //     })
+  //       .then((res) => res.json())
+  //       .then((data) => {
+  //         toast.success("Item Successfully Deleted", { id: "itemDel" });
+  //       });
+  //   } else {
+  //     toast.error("ID did not match", { id: "itemDelNot" });
+  //   }
+  // };
   return (
     <div className="myItems-container container">
       <h2 className="text-center mt-sm-5">My Items</h2>
