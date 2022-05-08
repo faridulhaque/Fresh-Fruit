@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import { useItems } from "../hooks/useItems";
 import { useMyOwnAlert } from "../hooks/useMyOwnAlert";
 import "./itemDetails.css";
 
@@ -7,6 +8,7 @@ const ItemDetails = () => {
   const { itemDetail } = useParams();
   const [itemInfo, setItemInfo] = useState({});
   const {showingAlert} = useMyOwnAlert();
+  const [items, setItems, loading] = useItems();
   
 
   useEffect(() => {
@@ -94,6 +96,7 @@ const ItemDetails = () => {
                 <p className="p-in-itemDetails-others">
                   <b>Quantity </b>
                 </p>
+                {/* {loading && <ClipLoader color={"red"} loading={loading} size={100} />} */}
                 {
                   itemInfo.quantity >= 1 ? <p className="p-in-itemDetails-others">
                   {itemInfo.quantity} (KG)

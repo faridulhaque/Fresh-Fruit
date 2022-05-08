@@ -9,9 +9,7 @@ import Inventories from "../Inventories/Inventories";
 const Home = () => {
     const [items, setItems, loading] = useItems();
     
-    const alertMe = () =>{ 
-      console.log("abbu");
-    }
+    
       
     
   return (
@@ -23,7 +21,7 @@ const Home = () => {
       <Header></Header>
       <Inventories></Inventories>
       <AnySuggestion></AnySuggestion>
-      <button  onClick={alertMe} >alert</button>
+      
     </div>
   );
 };
