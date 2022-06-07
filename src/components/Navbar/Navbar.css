@@ -31,9 +31,13 @@
     border-bottom: 2px solid rgb(0,128,0) !important;
     color: green !important;
 }
+.fa-bars{
+    color: white !important;
+}
 /* responsive for mobile */
 @media only screen and (max-width: 570px) {
     .dropdown-signOut{
         margin-left: 120px !important;
     }
+    
   }
